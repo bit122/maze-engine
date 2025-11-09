@@ -1,4 +1,5 @@
 #include "framebuffer.h"
+#include "uart.h"
 
 typedef unsigned long size_t;
 size_t strlen(const char *s) {
@@ -35,16 +36,19 @@ void print_process(const char* name, int ok) {
 }
 
 int main(void) {
+    uart_init();
+    uart_puts("Hello, UART world!\n");
+
     fb_init();
     fb_set_pos(32, 32);
 
     fb_set_color(COLOR_CYAN);
     fb_println("=== Boot Device Table ===");
 
-    print_device("SD Card", 1);      
-    print_device("UART", 1);         
-    print_device("Ethernet", 0);     
-    print_device("USB Keyboard", 1); 
+    print_device("SD Card", 1);
+    print_device("UART", 1);
+    print_device("Ethernet", 0);
+    print_device("USB Keyboard", 1);
 
     fb_set_color(COLOR_CYAN);
     fb_println("\n=== Boot Process Log ===");
