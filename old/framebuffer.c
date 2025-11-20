@@ -176,11 +176,10 @@ static int pitch         = 0;
 static int fb_x = 0, fb_y = 0;
 static uint32_t fb_color = COLOR_WHITE;
 
-// 8x8 font for ASCII 0x20-0x7E (from font8x8_basic)—add your full table here!
 static const uint8_t font8x8_basic[95][8] = {
-    // ... [full font table as in previous messages] ...
+    
     { 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 }, // ' '
-    // (Table omitted for brevity, please copy full font here from prior message)
+
 };
 
 static void draw_char(int x, int y, char c, uint32_t color) {
